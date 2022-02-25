@@ -1,20 +1,35 @@
-import { TextareaAutosize, TextField } from '@mui/material';
-import React from 'react';
+import { Button, Input, TextField } from '@mui/material';
+import React, { useState } from 'react';
 
 const PostBlog = () => {
+
+    const [title, setTitle] = useState('');
+    const [post, setPost] = useState('');
+    const [image, setImage] = useState(null);
+
+
     return (
         <div>
             <form >
                 <TextField
                     label="Title"
+                    sx={{ width: '35%', marginBottom: '15px' }}
                     type="text"
+                    required
                     variant="standard" />
-                <TextareaAutosize
-                    maxRows={4}
-                    aria-label="maximum height"
-                    placeholder="Maximum 4 rows"
-                    style={{ width: 200 }}
+                <br />
+                <TextField
+                    sx={{ width: '35%', marginBottom: '5px' }}
+                    required
                 />
+                <br />
+                <Input
+                    accept="image/*"
+                    multiple type="file" />
+                <br />
+                <Button variant="contained" component="span">
+                    Upload
+                </Button>
 
             </form>
 
